@@ -1,0 +1,27 @@
+Invoiceda delete yo'q !
+
+
+purchaseInvoiceni patch metodini boshqatdan qilish
+Employee patch metodi ishlamayapti ?
+
+
+Fromquery qilaman va Postmanda ham puwerylarni sozlayman 
+$expand qilib chiqaman
+Userdefined
+
+Asosiysysi IncomingPayement va ChartsOfAccounts larni qilaman!
+Ularni hamma metodlarini tekshirib ! GetById va Expandlarini yozaman !
+Ular ustada malumot qo'shib ishlayman !
+
+
+
+
+
+Qilgan ishimni o'rganib hciqishim keak !
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+@SAP_Project_HostAddress = http://localhost:5224
+
+GET {{SAP_Project_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
