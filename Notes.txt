@@ -5,7 +5,6 @@ purchaseInvoiceni patch metodini boshqatdan qilish
 Employee patch metodi ishlamayapti ?
 
 
-Fromquery qilaman va Postmanda ham puwerylarni sozlayman 
 $expand qilib chiqaman
 Userdefined
 

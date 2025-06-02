@@ -8,7 +8,7 @@ using DTOs.EmployeeDto;
 
 namespace BusinesssLogicLayer.Services
 {
-    public class SapEmployeeService : ISapEmployeeService
+    public class    SapEmployeeService : ISapEmployeeService
     {
         private readonly HttpClient _httpClient;
         private readonly SapSession _sapSession;

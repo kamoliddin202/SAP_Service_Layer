@@ -60,7 +60,7 @@ namespace BusinesssLogicLayer.Services
             return await HandleResponce(response);
         }
 
-        public async Task<string> GetChartOfAccountsAsync(string? acctCode, string? acctName, int page = 1, int pageSize = 1)
+        public async Task<string> GetChartOfAccountsAsync(string? acctCode, string? acctName, int page = 1, int pageSize = 100)
         {
             SetCookiesHeader();
 

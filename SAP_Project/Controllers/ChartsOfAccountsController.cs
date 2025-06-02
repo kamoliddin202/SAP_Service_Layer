@@ -26,7 +26,7 @@ namespace SAP_Project.Controllers
         {
             try
             {
-                var result = await _accountService.GetChartOfAccountsAsync(acctCode, acctName, page, pageSize);
+                var result = await _accountService.GetChartOfAccountsAsync(acctCode, acctName, page = 1, pageSize = 100);
                 return Ok(result);
             }
             catch (Exception ex)

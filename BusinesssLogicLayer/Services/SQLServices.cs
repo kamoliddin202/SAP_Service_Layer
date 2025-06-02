@@ -148,59 +148,6 @@ public class SQLServices : ISQLInterfaces
         return await ExecuteAllSqlAsync(sql);
     }
 
-    public async Task<string> GetTop10FrequentCustomersAsync()
-    {
-        string sql = @"
-    WITH PurchaseCounts AS (
-        SELECT
-            C.""CardCode"",
-            C.""CardName"",
-            COUNT(*) AS ""PurchaseCount""
-        FROM ""OINV"" O
-        INNER JOIN ""OCRD"" C ON O.""CardCode"" = C.""CardCode""
-        GROUP BY C.""CardCode"", C.""CardName""
-    )
-    SELECT
-        ""CardCode"",
-        ""CardName"",
-        ""PurchaseCount""
-    FROM (
-        SELECT
-            *,
-            ROW_NUMBER() OVER (ORDER BY ""PurchaseCount"" DESC) AS rn
-        FROM PurchaseCounts
-    ) AS numbered
-    WHERE rn <= 10";
-
-        return await ExecuteAllSqlAsync(sql);
-    }
-
-    public async Task<string> GetTop10HighestSpendingCustomersAsync()
-    {
-        string sql = @"
-    WITH Spending AS (
-        SELECT
-            C.""CardCode"",
-            C.""CardName"",
-            SUM(O.""DocTotal"") AS ""TotalSpent""
-        FROM ""OINV"" O
-        INNER JOIN ""OCRD"" C ON O.""CardCode"" = C.""CardCode""
-        GROUP BY C.""CardCode"", C.""CardName""
-    )
-    SELECT
-        ""CardCode"",
-        ""CardName"",
-        ""TotalSpent""
-    FROM (
-        SELECT
-            *,
-            ROW_NUMBER() OVER (ORDER BY ""TotalSpent"" DESC) AS rn
-        FROM Spending
-    ) AS numbered
-    WHERE rn <= 10";
-        return await ExecuteAllSqlAsync(sql);
-    }
-
     public async Task<string> GetPurchasesWithLinesAsync()
     {
         string sql = @"

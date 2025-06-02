@@ -101,15 +101,8 @@ namespace BusinesssLogicLayer.Services
 
             var payload = new Dictionary<string, object>();
 
-            if (!string.IsNullOrWhiteSpace(updateDto.DocDate))
-                payload["DocDate"] = updateDto.DocDate;
-
-            // CashSum qiymati 0 bo'lishi mumkin, shuning uchun 0 dan katta bo'lsa qo'shamiz
-            if (updateDto.CashSum > 0)
-                payload["CashSum"] = updateDto.CashSum;
-
-            if (!string.IsNullOrWhiteSpace(updateDto.DocType))
-                payload["DocType"] = updateDto.DocType;
+            if (!string.IsNullOrWhiteSpace(updateDto.Remarks))
+                payload["Remarks"] = updateDto.Remarks;
 
             var json = JsonSerializer.Serialize(payload);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -139,16 +132,15 @@ namespace BusinesssLogicLayer.Services
             return await HandleResponce(response);
         }
 
-        public async Task<string> GetIncomingPaymentsByIdAsync(string cardCode)
+        public async Task<string> GetIncomingPaymentByIdAsync(int docEntry)
         {
             SetCookiesHeader();
 
-            var url = $"https://su15-04.sb1.cloud/ServiceLayer/b1s/v2/IncomingPayments({cardCode})";
+            var url = $"https://su15-04.sb1.cloud/ServiceLayer/b1s/v2/IncomingPayments({docEntry})";
 
             var response = await _httpClient.GetAsync(url);
 
             return await HandleResponce(response);
-
         }
     }
 }

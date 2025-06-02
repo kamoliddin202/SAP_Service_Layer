@@ -13,8 +13,6 @@
         Task<string> GetMostExpensiveSoldItemAsync();
         Task<string> GetTop10MostExpensiveItemsAsync();
         Task<string> GetMostExpensiveItemWithCustomerAsync();
-        Task<string> GetTop10FrequentCustomersAsync();
-        Task<string> GetTop10HighestSpendingCustomersAsync();
         Task<string> GetPurchasesWithLinesAsync();
 
 

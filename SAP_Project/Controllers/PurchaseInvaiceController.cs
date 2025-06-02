@@ -58,6 +58,13 @@ namespace SAP_Project.Controllers
             }
         }
 
+        /// <summary>
+        /// Purchase uchun Upate qo'llab quvvatlanmas ekan
+        /// </summary>
+        /// <param name="docEntry"></param>
+        /// <param name="updateDto"></param>
+        /// <returns></returns>
+
         [HttpPatch("{docEntry}")]
         public async Task<IActionResult> UpdatePurchase(int docEntry, UpdatePurchaseInvoiceDto updateDto)
         {
@@ -75,6 +82,11 @@ namespace SAP_Project.Controllers
                 });
             }
         }
+        /// <summary>
+        /// Purchase uchun Delete qo'llab quvvatlanmas ekan
+        /// </summary>
+        /// <param name="docEntry"></param>
+        /// <returns></returns>
 
         [HttpDelete("{docEntry:int}")]
         public async Task<IActionResult> DeletePurchase(int docEntry)
@@ -94,22 +106,29 @@ namespace SAP_Project.Controllers
             }
         }
 
-        //[HttpGet("{cardCode}")]
-        //public async Task<IActionResult> GetPurchaseByIdAsync(int cardCode)
-        //{
-        //    try
-        //    {
-        //        var result = await _purchaseService.GetPurchaseInvoiceByIdAsync(cardCode);
-        //        return Ok(result);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new
-        //        {
-        //            Message = "Xarid fakturasini olishda xatolik yuz berdi!",
-        //            Error = ex.Message
-        //        });
-        //    }
-        //}
+
+        /// <summary>
+        /// Purchase uchun qo'llab quvvatlanmas ekan
+        /// </summary>
+        /// <param name="cardCode"></param>
+        /// <returns></returns>
+
+        [HttpGet("{cardCode}")]
+        public async Task<IActionResult> GetPurchaseByIdAsync(int cardCode)
+        {
+            try
+            {
+                var result = await _purchaseService.GetPurchaseInvoiceByIdAsync(cardCode);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Message = "Xarid fakturasini olishda xatolik yuz berdi!",
+                    Error = ex.Message
+                });
+            }
+        }
     }
 }

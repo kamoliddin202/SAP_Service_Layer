@@ -65,7 +65,7 @@ namespace SAP_Project.Controllers
             }
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{Id:int}")]
         public async Task<IActionResult> DeleteEmployee(int Id)
         {
             try

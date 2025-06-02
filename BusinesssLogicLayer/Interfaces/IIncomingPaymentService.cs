@@ -9,6 +9,6 @@ namespace BusinesssLogicLayer.Interfaces
         Task<string> PostIncomingPaymentAsync(IncomingPayment body);
         Task<string> PatchIncomingPaymentAsync(int docEntry, UpdateIncomingPaymentDto updateBody);
         Task<string> DeleteIncomingPaymentAsync(int docEntry);
-        Task<string> GetIncomingPaymentsByIdAsync(string cardCode);  
+        Task<string> GetIncomingPaymentByIdAsync(int cardCode);  
     }
 }

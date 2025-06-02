@@ -140,34 +140,6 @@ namespace SAP_Project.Controllers
             }
         }
 
-        [HttpGet("top-10-frequent-customers")]
-        public async Task<IActionResult> GetTop10FrequentCustomers()
-        {
-            try
-            {
-                var result = await _sqlService.GetTop10FrequentCustomersAsync();
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Message = "Eng ko‘p xarid qiluvchi 10 ta mijozni olishda xatolik yuz berdi.", Error = ex.Message });
-            }
-        }
-
-        [HttpGet("top-10-highest-spending-customers")]
-        public async Task<IActionResult> GetTop10HighestSpendingCustomers()
-        {
-            try
-            {
-                var result = await _sqlService.GetTop10HighestSpendingCustomersAsync();
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Message = "Eng ko‘p xarajat qiluvchi 10 ta mijozni olishda xatolik yuz berdi.", Error = ex.Message });
-            }
-        }
-
         [HttpGet("purchases-with-lines")]
         public async Task<IActionResult> GetPurchasesWithLines()
         {

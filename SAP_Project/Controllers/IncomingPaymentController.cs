@@ -38,12 +38,12 @@ namespace SAP_Project.Controllers
         }
 
 
-        [HttpPatch("put")]
-        public async Task<IActionResult> Patch(int docEntiry, UpdateIncomingPaymentDto updateIncomingPaymentDto)
+        [HttpPatch("{docEntry}")]
+        public async Task<IActionResult> Patch(int docEntry, UpdateIncomingPaymentDto updateIncomingPaymentDto)
         {
             try
             {
-                var result = await _incomingPaymentService.PatchIncomingPaymentAsync(docEntiry, updateIncomingPaymentDto);
+                var result = await _incomingPaymentService.PatchIncomingPaymentAsync(docEntry, updateIncomingPaymentDto);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -52,7 +52,7 @@ namespace SAP_Project.Controllers
             }
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{docEntiry}")]
         public async Task<IActionResult> Delete(int docEntiry)
         {
             try
@@ -81,11 +81,11 @@ namespace SAP_Project.Controllers
         }
 
         [HttpGet("ById/{cardCode}")]
-        public async Task<IActionResult> GetIncoimingPayementById(string cardCode)
+        public async Task<IActionResult> GetIncoimingPayementById(int cardCode)
         {
             try
             {
-                var result = await _incomingPaymentService.GetIncomingPaymentsByIdAsync(cardCode);
+                var result = await _incomingPaymentService.GetIncomingPaymentByIdAsync(cardCode);
 
                 return Ok(result);
             }

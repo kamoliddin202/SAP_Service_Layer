@@ -32,6 +32,7 @@ builder.Services.AddHttpClient<IChartOfAccountService, ChartOfAccountService>();
 builder.Services.AddHttpClient<ISupplierService, SupplierService>();
 builder.Services.AddHttpClient<ICustomerService, CustomerService>();
 builder.Services.AddHttpClient<ISQLInterfaces, SQLServices>();
+builder.Services.AddHttpClient<ISapQueryInterface, SapQueryService>();
 
 
 // Swagger qo'shish uchun Swashbuckle xizmatini qo'shish
